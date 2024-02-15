@@ -14,11 +14,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root to: "home#index"
-
   
-  authenticated :admin_user do
-    root to: "admin#index", as: :admin_root
+
+  devise_scope :admin do
+    authenticated :admin do
+      root to: "admin#index", as: :admin_root
+    end
+    unauthenticated :admin do
+      root to: "home#index"
+    end
   end
   
   get "admin" => "admin#index"

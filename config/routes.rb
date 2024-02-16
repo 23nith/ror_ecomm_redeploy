@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :categories, only: [:show]
+  
   get "admin" => "admin#index"
-  get "category" => "category#index"
 end

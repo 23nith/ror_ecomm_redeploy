@@ -24,25 +24,6 @@ class WebhooksController < ApplicationController
 
         case event.type
         when 'checkout.session.completed'
-            # session = event.data.object
-            # shippiing_details = session["shipping_details"]
-            # puts "Session: #{session}"
-
-            # address = "#{shipping_details['address']['line1']} #{shippiing_details['address']['city']}, #{shipping_details['address']['state']} #{shipping_details['address']['postal_code']}" 
-            # order = Order.create!(customer_email: session["customer_details"]["email"], total: session["ammount_total"], address: address, fulfilled: false)
-            # full_session = Stripe::Checkout::Session.retrieve({
-            #     id: session.id,
-            #     expand: ['line_items']
-            # })
-            # line_items = full_session.line_items
-            # line_items["data"].each do |item|
-            #     product = Stripe::Product.retrieve(item["price"]["product"])
-            #     product_id = product["metadata"]["product_id"].to_i
-            #     OrderProduct.create!(order: order, product_id: product_id, quantity: item["quantity"], size: product["metadata"]["size"])
-            #     ProductStock.find(product["metadata"]["product_stock_id"].decrement!(:amount, item["quantity"]))
-            # end 
-
-
             session = event.data.object 
             shipping_details = session["shipping_details"]
             puts "Session: #{session}"

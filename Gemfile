@@ -75,3 +75,4 @@ gem "stripe", "~> 10.11"
 
 gem "pagy", "~> 7.0"
 gem "aws-sdk-s3", require: false
+gem "dockerfile-rails", ">= 1.6", :group => :development
